@@ -26,10 +26,10 @@ function App() {
          mapperid : 'interviewInsert'
          }
         }></InterviewInsert>}></Route>   
-      <Route path='/interviewModify:no' element={<InterviewInsert dbinfo={ {         
+      <Route path='/interviewModify/:isno' element={<InterviewInsert dbinfo={ {         
          titlenm : '수정시 주소의 no변수필수 : 아마존 폼태그 글쓰기와 동일한 컴포넌트를 사용한다.', 
          botable : 'interviewModify',
-         crud : 'modify',
+         crud : 'update',
          mapper : 'introduceSQL',
          mapperid : 'interviewModify'
          }

@@ -4,26 +4,36 @@
     <select id="interviewList">
         select 
             *
-        from bby_preinterview.conent_interview
-        order by no desc
+        FROM innodb.interveiw
+        order by keyno desc
+        <!-- 내림차순이나 오름차순으로 변경해주게따 -->
     </select>
+    <update id="interviewUpdate">
+        update into 
+            *
+        FROM innodb.interveiw
+        <if test=" isno !== null && isno !=='' ">
+            where keyno = #{isno};
+        </if>
+        order by keyno desc
+    </update>
     <insert id="interviewInsert">
+
         insert into 
-            bby_preinterview.conent_interview (
-                subject                
-                , content 
+            innodb.interveiw(
+                wr_a                
+                , wr_b 
             )
             values (
-                 #{wr_subject}
-                ,  #{wr_content}
+                 #{wr_a}
+                ,  #{wr_b}
             )
     </insert> 
     <delete id="interviewDelete">
         delete from
-            bby_preinterview.conent_interview 
+            innodb.interveiw(
         where 
-            no = #{no}
-    </delete> 
-   
+            keyno = #{keyno}
+    </delete>    
 </mapper>
 

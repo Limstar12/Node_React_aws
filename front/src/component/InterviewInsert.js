@@ -6,22 +6,24 @@ import $ from 'jquery';
 
 function InsertInterview(props){
   
-   const [message, setMessage ] = useState(''); //에러출력 변수
+   const [message, setMessage ] = useState('');
+   //에러출력 변수
 
-   const submitInterview = async (type, e) => { //버튼클릭시 실행
+   const submitInterview = async (type, e) => {
+     //버튼클릭시 실행
 
     const  fnValidate = () =>{ 
       if(!$('#agreeTerm').is(':checked')){ 
           setMessage("동의하시게나");
           return false;
       } 
-      if($('#wr_subject').val() == '' ){
-        $('#wr_subject').focus();
+      if($('#wr_a').val() == '' ){
+        $('#wr_a').focus();
         setMessage("제목넣기");       
         return false;
       } 
-      if($('#wr_content').val() == '' ){
-        $('#wr_content').focus();
+      if($('#wr_a').val() == '' ){
+        $('#wr_a').focus();
         setMessage("내용넣기");       
         return false;
     }                  
@@ -86,12 +88,12 @@ function InsertInterview(props){
         </FormGroup>
         <div className='formStyle'>
         <FormGroup>
-          <Label for="wr_subject">인터뷰제목</Label>
-          <Input type="text" name='wr_subject' id="wr_subject" />
+          <Label for="wr_a">인터뷰제목</Label>
+          <Input type="text" name='wr_a' id="wr_a" />
         </FormGroup>
         <FormGroup>
-          <Label for="exampleText">인터뷰내용</Label>
-          <Input type="textarea" name="wr_content" id="wr_content" />
+          <Label for="wr_b">인터뷰내용</Label>
+          <Input type="textarea" name="wr_b" id="wr_b" />
         </FormGroup>       
         </div>
         <FormGroup check className="agree">

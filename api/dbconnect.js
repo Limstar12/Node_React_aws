@@ -13,14 +13,17 @@ var format = { language : 'sql', indent : '  '}
 
 
 //주소창에 담긴 변수를 읽기
+// 주소창과 비동기 post req.body
 router.use(express.urlencoded({ extended : true }))
 router.use(express.json())
-
+// json화 시키기 미듈웨어와 모듈을 최적화시킴
 
 router.post('/',(req, res) => {
     var type = req.query.type; 
     //주소창에 type변수의 값 글쓰기인지, 글읽기인지, 삭제인지, 삽입인지 분리역활 
-    var params = req.body; 
+    var params = req.body; // 리액트가 준거
+    // xml, mapper 이름, 아이디, crud ->  리액트컴포넌트 props에 넣어둔 것
+    // 글쓰기는 가볍게 오고, 글수정은 no(프라이머리키)를 가져온다.
     //object -> router.use(express.json())
     
    console.log('type : ', type ); //object
@@ -38,7 +41,7 @@ router.post('/',(req, res) => {
         console.log("쿼리문 :", query);
         pool.getConnection(function(err, connection) {
 
-            if(err) throw console.log(" DB접속불가 config.js가 틀렸데  : " + err);
+            if(err) throw console.log(" DB접속불가 config.js가 틀렸대  : " + err);
     
             connection.query(
                 query, // 여기는 반드시 sql문이 들어와야 에러가 안남

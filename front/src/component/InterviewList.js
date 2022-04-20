@@ -11,13 +11,13 @@ class Classcomponent extends Component {
         this.state ={
             message : '서비스요청을 기다리는 중...',
             interviewData : [],
-            deleteDB : async (no) => {
+            deleteDB : async (keyno) => {
                 try{
                
                     axios.post('/api?type=interviewDelete', {
                         
                         body :{ 
-                                no : no,
+                                no : keyno,
                                 crud : 'delete',
                                 mapper : this.props.dbinfo.mapper,
                                 mapperid :'interviewDelete'
@@ -83,23 +83,23 @@ class Classcomponent extends Component {
                     {
                         
                      this.state.interviewData.map(
-                         (content,i) =>
+                         (wr_b,i) =>
                          {
                              return (
-                                <Accordion.Item eventKey={i.toString()} key={ content.no } >
+                                <Accordion.Item eventKey={i.toString()} key={ wr_b.keyno } >
 
                                     <Accordion.Header>
                                    
                                         <strong className='row justify-content-between align-items-center w-100'>
-                                            <span className='col-sm-9 mb-0'> { content.subject }</span>
+                                            <span className='col-sm-9 mb-0'> { wr_b.wr_a }</span>
                                             <span className='btn interviewBtn col-sm-3  mb-0'>
-                                                <Link to={'/interviewModify/'+ content.no } className='modify btn btn-primary mx-1 '>M</Link> 
-                                                <a href="#" onClick={ e=>{ this.state.deleteDB(content.no) }}  className='delete btn btn-primary mx-1'>D</a>
+                                                <Link to={'/interviewModify/'+ wr_b.keyno } className='modify btn btn-primary mx-1 '>M</Link> 
+                                                <a href="#" onClick={ e=>{ this.state.deleteDB(wr_b.keyno) }}  className='delete btn btn-primary mx-1'>D</a>
                                             </span>                                            
                                         </strong>
                                     </Accordion.Header>
                                     <Accordion.Body>
-                                            { content.content }
+                                            { wr_b.wr_b }
                                     </Accordion.Body>
                                 </Accordion.Item>
                              )

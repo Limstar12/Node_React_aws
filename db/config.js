@@ -1,7 +1,7 @@
 module.exports = {
-    host : 'myreactdb-1.cnplyybrklko.ap-northeast-2.rds.amazonaws.com',
+    host : 'database-1.cuaahtszwr5e.ap-northeast-2.rds.amazonaws.com',
     user : 'admin',
-    password : 'Bang0820!!',
+    password : '12341234',
     port : '3306',
-    database : 'bby_preinterview'
+    database : 'innodb'
 }
